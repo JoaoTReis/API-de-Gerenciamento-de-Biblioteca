@@ -1,6 +1,7 @@
 package com.joaoreis.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.joaoreis.demo.entities.enums.RentStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,6 +18,8 @@ public class Rent implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'",timezone = "GMT")
     private Instant moment;
 
+    private Integer rentStatus;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
@@ -24,9 +27,10 @@ public class Rent implements Serializable {
     public Rent() {
     }
 
-    public Rent(Long id, Instant moment, User client) {
+    public Rent(Long id, Instant moment, RentStatus rentStatus,User client) {
         this.id = id;
         this.moment = moment;
+        setRentStatus(rentStatus);
         this.client = client;
     }
 
@@ -44,6 +48,16 @@ public class Rent implements Serializable {
 
     public void setMoment(Instant moment) {
         this.moment = moment;
+    }
+
+    public RentStatus getRentStatus() {
+        return RentStatus.valueOf(rentStatus);
+    }
+
+    public void setRentStatus(RentStatus rentStatus) {
+        if(rentStatus != null) {
+            this.rentStatus = rentStatus.getCode();
+        }
     }
 
     public User getClient() {

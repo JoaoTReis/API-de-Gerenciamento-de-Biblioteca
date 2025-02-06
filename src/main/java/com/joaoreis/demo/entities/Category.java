@@ -1,5 +1,6 @@
 package com.joaoreis.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.joaoreis.demo.entities.enums.Literary_genre;
 import jakarta.persistence.*;
 
@@ -19,7 +20,8 @@ public class Category implements Serializable {
 
     private Integer literary_genre;
 
-    @Transient
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
     private Set<Book> books = new HashSet<>();
 
     public Category() {

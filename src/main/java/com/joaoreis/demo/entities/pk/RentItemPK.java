@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class OrderItemPK implements Serializable {
+public class RentItemPK implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
@@ -40,7 +40,7 @@ public class OrderItemPK implements Serializable {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        OrderItemPK that = (OrderItemPK) object;
+        RentItemPK that = (RentItemPK) object;
         return Objects.equals(rent, that.rent) && Objects.equals(book, that.book);
     }
 

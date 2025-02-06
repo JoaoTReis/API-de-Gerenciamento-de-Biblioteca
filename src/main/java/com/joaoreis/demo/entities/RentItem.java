@@ -2,7 +2,7 @@ package com.joaoreis.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.joaoreis.demo.entities.enums.RentStatus;
-import com.joaoreis.demo.entities.pk.OrderItemPK;
+import com.joaoreis.demo.entities.pk.RentItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -16,7 +16,7 @@ import java.util.Objects;
 public class RentItem implements Serializable {
 
     @EmbeddedId
-    private OrderItemPK id = new OrderItemPK();
+    private RentItemPK id = new RentItemPK();
 
     private Integer quantity;
     private Double price = 5.0;

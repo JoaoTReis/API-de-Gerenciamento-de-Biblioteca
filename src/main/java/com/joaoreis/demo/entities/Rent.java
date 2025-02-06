@@ -30,6 +30,9 @@ public class Rent implements Serializable {
     @OneToMany(mappedBy = "id.rent")
     private Set<RentItem> items = new HashSet<>();
 
+    @OneToOne(mappedBy = "rent", cascade = CascadeType.ALL)
+    private Payment payment;
+
     public Rent() {
     }
 
@@ -54,6 +57,14 @@ public class Rent implements Serializable {
 
     public void setMoment(Instant moment) {
         this.moment = moment;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public RentStatus getRentStatus() {

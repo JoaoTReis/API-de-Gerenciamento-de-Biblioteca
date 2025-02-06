@@ -4,7 +4,9 @@ import com.joaoreis.demo.entities.enums.Literary_genre;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_category")
@@ -16,6 +18,9 @@ public class Category implements Serializable {
     private String gender ;
 
     private Integer literary_genre;
+
+    @Transient
+    private Set<Book> books = new HashSet<>();
 
     public Category() {
     }
@@ -50,6 +55,10 @@ public class Category implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
     }
 
     @Override

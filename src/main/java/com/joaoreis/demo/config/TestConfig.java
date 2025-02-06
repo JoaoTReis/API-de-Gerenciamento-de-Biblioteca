@@ -1,10 +1,12 @@
 package com.joaoreis.demo.config;
 
+import com.joaoreis.demo.entities.Book;
 import com.joaoreis.demo.entities.Category;
 import com.joaoreis.demo.entities.Rent;
 import com.joaoreis.demo.entities.User;
 import com.joaoreis.demo.entities.enums.Literary_genre;
 import com.joaoreis.demo.entities.enums.RentStatus;
+import com.joaoreis.demo.repositories.BookRepository;
 import com.joaoreis.demo.repositories.CategoryRepository;
 import com.joaoreis.demo.repositories.RentRepository;
 import com.joaoreis.demo.repositories.UserRepository;
@@ -29,6 +31,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private BookRepository bookRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -43,9 +48,16 @@ public class TestConfig implements CommandLineRunner {
         Category cat2 = new Category(null, Literary_genre.DRAMA);
         Category cat3 = new Category(null, Literary_genre.ACTION);
 
+        Book p1 = new Book(null, "The Lord of the Rings", "J. R. R. Tolkien", "Lorem ipsum dolor sit amet, consectetur.", "");
+        Book p2 = new Book(null, "Dom Quixote", "Miguel de Cervantes", "Nulla eu imperdiet purus. Maecenas ante.", "");
+        Book p3 = new Book(null, "Hamlet", "William Shakespeare", "Nam eleifend maximus tortor, at mollis.", "");
+        Book p4 = new Book(null, "Sagarana", "Guimarães Rosa", "Donec aliquet odio ac rhoncus cursus.", "");
+        Book p5 = new Book(null, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Cras fringilla convallis sem vel faucibus.", "");
+
         userRepository.saveAll(Arrays.asList(u1,u2));
         rentRepository.saveAll(Arrays.asList(o1,o2,o3));
         categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
+        bookRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
     }
 
 

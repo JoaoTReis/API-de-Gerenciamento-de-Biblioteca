@@ -1,5 +1,6 @@
 package com.joaoreis.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.joaoreis.demo.entities.enums.Literary_genre;
 import jakarta.persistence.*;
 
@@ -25,6 +26,9 @@ public class Book implements Serializable {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
+
+    @OneToMany(mappedBy = "id.book")
+    private Set<RentItem> items = new HashSet<>();
 
     public Book() {
     }
@@ -79,6 +83,15 @@ public class Book implements Serializable {
 
     public Set<Category> getCategories() {
         return categories;
+    }
+
+    @JsonIgnore
+    public Set<Rent> getRents(){
+        Set<Rent> set = new HashSet<>();
+        for(RentItem x : items){
+            set.add(x.getRent());
+        }
+        return set;
     }
 
     @Override

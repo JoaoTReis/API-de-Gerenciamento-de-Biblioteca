@@ -66,7 +66,7 @@ public class TestConfig implements CommandLineRunner {
         bookRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 
         RentItem oi1 = new RentItem(o1, p1, 2,o1.getRentStatus());
-        RentItem oi2 = new RentItem(o1, p3, 1,o1.getRentStatus());
+        RentItem oi2 = new RentItem(o1, p2, 1,o1.getRentStatus());
         RentItem oi3 = new RentItem(o2, p3, 2,o2.getRentStatus());
         RentItem oi4 = new RentItem(o3, p5, 2,o3.getRentStatus());
         

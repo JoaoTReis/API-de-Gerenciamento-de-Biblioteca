@@ -9,6 +9,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tb_Rent")
 public class Rent implements Serializable {
 
     @Id

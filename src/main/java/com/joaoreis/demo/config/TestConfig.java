@@ -1,15 +1,9 @@
 package com.joaoreis.demo.config;
 
-import com.joaoreis.demo.entities.Book;
-import com.joaoreis.demo.entities.Category;
-import com.joaoreis.demo.entities.Rent;
-import com.joaoreis.demo.entities.User;
+import com.joaoreis.demo.entities.*;
 import com.joaoreis.demo.entities.enums.Literary_genre;
 import com.joaoreis.demo.entities.enums.RentStatus;
-import com.joaoreis.demo.repositories.BookRepository;
-import com.joaoreis.demo.repositories.CategoryRepository;
-import com.joaoreis.demo.repositories.RentRepository;
-import com.joaoreis.demo.repositories.UserRepository;
+import com.joaoreis.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +27,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private RentItemRepository rentItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -67,6 +64,13 @@ public class TestConfig implements CommandLineRunner {
         p5.getCategories().add(cat2);
 
         bookRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+
+        RentItem oi1 = new RentItem(o1, p1, 2,o1.getRentStatus());
+        RentItem oi2 = new RentItem(o1, p3, 1,o1.getRentStatus());
+        RentItem oi3 = new RentItem(o2, p3, 2,o2.getRentStatus());
+        RentItem oi4 = new RentItem(o3, p5, 2,o3.getRentStatus());
+        
+        rentItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
     }
 
 

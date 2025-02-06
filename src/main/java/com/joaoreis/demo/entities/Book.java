@@ -1,5 +1,6 @@
 package com.joaoreis.demo.entities;
 
+import com.joaoreis.demo.entities.enums.Literary_genre;
 import jakarta.persistence.*;
 
 import java.io.Serializable;

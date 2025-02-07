@@ -34,8 +34,8 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "rua 5, cidade baixa","12345");
-        User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "rua 3, cidade alta","54321");
+        User u1 = new User(null, "Maria Brown", "988888888", "maria@gmail.com", "rua 5, cidade baixa","12345");
+        User u2 = new User(null, "Alex Green", "977777777", "alex@gmail.com", "rua 3, cidade alta","54321");
 
         Rent o1 = new Rent(null, Instant.parse("2019-06-20T19:53:07Z"), RentStatus.RESERVED, u1);
         Rent o2 = new Rent(null, Instant.parse("2019-07-21T03:42:10Z"),RentStatus.CANCELLED, u2);

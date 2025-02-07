@@ -27,4 +27,8 @@ public class BookService {
     public Book insert(Book obj){
         return repository.save(obj);
     }
+
+    public void delete(Long id){
+        repository.deleteById(id);
+    }
 }

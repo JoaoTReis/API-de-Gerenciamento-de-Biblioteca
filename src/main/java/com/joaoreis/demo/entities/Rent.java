@@ -89,6 +89,14 @@ public class Rent implements Serializable {
         return items;
     }
 
+    public Double getTotal(){
+        double sum = 0.0;
+        for(RentItem x : items){
+            sum += x.getSubTotal();
+        }
+        return sum;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;

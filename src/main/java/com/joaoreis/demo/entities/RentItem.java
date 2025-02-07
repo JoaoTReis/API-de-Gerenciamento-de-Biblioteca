@@ -12,26 +12,25 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_order_item")
+@Table(name = "tb_rent_item")
 public class RentItem implements Serializable {
 
     @EmbeddedId
     private RentItemPK id = new RentItemPK();
-
     private Integer quantity;
     private Double price = 5.0;
     private Date moment;
-    private String rentStatus;
+    private Integer rentStatus;
 
     public RentItem() {
     }
 
-    public RentItem(Rent rent, Book book, Integer quantity,RentStatus rentStatus) {
+    public RentItem(Rent rent, Book book,RentStatus rentStatus) {
         id.setRent(rent);
         id.setBook(book);
-        this.quantity = quantity;
+        this.quantity = 1;
         this.moment = new Date();
-        this.rentStatus = rentStatus.name();
+        setRentStatus(rentStatus);
     }
 
     @JsonIgnore
@@ -67,16 +66,22 @@ public class RentItem implements Serializable {
         this.price = price;
     }
 
+    public Double getSubTotal(){
+        return price * quantity;
+    }
+
     public Date getMoment() {
         return moment;
     }
 
-    public String getRentStatus() {
-        return rentStatus;
+    public RentStatus getRentStatus() {
+        return RentStatus.valueOf( rentStatus);
     }
 
-    public void setRentStatus(String rentStatus) {
-        this.rentStatus = rentStatus;
+    public void setRentStatus(RentStatus rentStatus) {
+        if(rentStatus != null) {
+            this.rentStatus = rentStatus.getCode();
+        }
     }
 
     @Override

@@ -16,7 +16,6 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String gender ;
 
     private Integer literary_genre;
 
@@ -30,7 +29,6 @@ public class Category implements Serializable {
     public Category(Long id, Literary_genre literary_genre) {
         this.id = id;
         setLiterary_genre(literary_genre);
-        this.gender = getLiterary_genre().name();
     }
 
     public Long getId() {
@@ -49,14 +47,6 @@ public class Category implements Serializable {
         if(literary_genre != null) {
             this.literary_genre = literary_genre.getCode();
         }
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public Set<Book> getBooks() {

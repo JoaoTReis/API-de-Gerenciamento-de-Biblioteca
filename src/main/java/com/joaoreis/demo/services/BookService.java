@@ -1,6 +1,7 @@
 package com.joaoreis.demo.services;
 
 import com.joaoreis.demo.entities.Book;
+import com.joaoreis.demo.entities.User;
 import com.joaoreis.demo.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,9 @@ public class BookService {
     public Book findById(Long id){
        Optional<Book> obj = repository.findById(id);
        return obj.get();
+    }
+
+    public Book insert(Book obj){
+        return repository.save(obj);
     }
 }

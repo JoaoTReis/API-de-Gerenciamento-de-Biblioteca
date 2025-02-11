@@ -60,17 +60,21 @@ This REST API was developed to manage libraries, allowing control over books, au
 3. Configure the database in the `application-prod.properties` file:
 
    ```properties
-   spring.datasource.url=jdbc:postgresql://dpg-cul990in91rc73e8se6g-a:5432/api_biblioteca_zu19
-   spring.datasource.username=api_biblioteca_zu19_user
-   spring.datasource.password=Init9aVtzBjv3aEb69vW986SO7HF64pQ
-   
+   spring.datasource.url=${DATABASE_URL}
+   spring.datasource.username=${DATABASE_USER}
+   spring.datasource.password=${DATABASE_PASSWORD}
+
+   spring.datasource.driver-class-name=org.postgresql.Driver
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+   spring.jpa.hibernate.ddl-auto=update # ou 'none' para produção
+   spring.jpa.show-sql=false
+   spring.jpa.properties.hibernate.format_sql=false
    spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
-   spring.jpa.hibernate.ddl-auto=update
-   spring.jpa.show-sql=true
-   spring.jpa.properties.hibernate.format_sql=true
-   
-   jwt.secret=MYJWTSECRET
-   jwt.expiration=3600000
+
+   jwt.secret=${JWT_SECRET}
+   jwt.expiration=${JWT_EXPIRATION}
+
    ```
 
 4. Build the project:

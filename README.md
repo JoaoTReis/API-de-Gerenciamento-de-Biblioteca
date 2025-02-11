@@ -60,9 +60,9 @@ This REST API was developed to manage libraries, allowing control over books, au
 3. Configure the database in the `application-prod.properties` file:
 
    ```properties
-   spring.datasource.url=jdbc:postgresql://localhost:5432/springboot_demo
-   spring.datasource.username=postgres
-   spring.datasource.password=1212001
+   spring.datasource.url=jdbc:postgresql://dpg-cul990in91rc73e8se6g-a:5432/api_biblioteca_zu19
+   spring.datasource.username=api_biblioteca_zu19_user
+   spring.datasource.password=Init9aVtzBjv3aEb69vW986SO7HF64pQ
    
    spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
    spring.jpa.hibernate.ddl-auto=update

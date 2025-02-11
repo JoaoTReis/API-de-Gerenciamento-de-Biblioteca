@@ -1,63 +1,63 @@
-## 📚 **Gerenciador de Biblioteca - API REST**
+## 📚 **Library Manager - REST API**
 
-### 🚀 **Descrição**
+### 🚀 **Description**
 
-Esta API REST foi desenvolvida para gerenciar bibliotecas, permitindo o controle de livros, autores e gêneros. Ela oferece operações CRUD (Create, Read, Delete) para gerenciar os dados de forma eficiente.
-
----
-
-### 🔧 **Recursos Disponíveis**
-
-- **Livros**  
-  - Listar todos os livros  
-  - Consultar livro por ID  
-  - Adicionar novo livro  
-  - Remover livro
-
-- **Usuários**  
-  - Listar todos os usuários  
-  - Consultar usuário por ID  
-  - Adicionar novo usuário  
-  - Atualizar dados de um usuário  
-  - Remover usuário
+This REST API was developed to manage libraries, allowing control over books, authors, and genres. It provides CRUD operations (Create, Read, Delete) to efficiently manage data.
 
 ---
 
-### 🛠️ **Tecnologias Utilizadas**
+### 🔧 **Available Features**
 
-- **Linguagem:** Java 17  
+- **Books**  
+  - List all books  
+  - Get book by ID  
+  - Add a new book  
+  - Delete a book  
+
+- **Users**  
+  - List all users  
+  - Get user by ID  
+  - Add a new user  
+  - Update user data  
+  - Delete a user  
+
+---
+
+### 🛠️ **Technologies Used**
+
+- **Language:** Java 17  
 - **Framework:** Spring Boot  
-- **Banco de Dados:** PostgreSQL  
-- **Persistência:** JPA com Hibernate  
-- **Gerenciamento de Dependências:** Maven  
+- **Database:** PostgreSQL  
+- **Persistence:** JPA with Hibernate  
+- **Dependency Management:** Maven  
 
 ---
 
-### 🛀 **Como Executar o Projeto**
+### 🛀 **How to Run the Project**
 
-#### Pré-requisitos
+#### Prerequisites
 
 - Java 17+  
 - Maven  
-- PostgreSQL instalado e configurado  
+- PostgreSQL installed and configured  
 
-#### Passos  
+#### Steps  
 
-1. Clone o repositório:
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/your-user/your-repository.git
+   cd your-repository
    ```
 
-2. Configure os perfis de ambiente no arquivo `application.properties`:
+2. Configure the environment profiles in the `application.properties` file:
 
    ```properties
    spring.profiles.active=prod
    spring.jpa.open-in-view=true
    ```
 
-3. Configure o banco de dados no arquivo `application-prod.properties`:
+3. Configure the database in the `application-prod.properties` file:
 
    ```properties
    spring.datasource.url=jdbc:postgresql://localhost:5432/springboot_demo
@@ -73,19 +73,19 @@ Esta API REST foi desenvolvida para gerenciar bibliotecas, permitindo o controle
    jwt.expiration=3600000
    ```
 
-4. Compile o projeto:
+4. Build the project:
 
    ```bash
    mvn clean install
    ```
 
-5. Execute a aplicação:
+5. Run the application:
 
    ```bash
    mvn spring-boot:run
    ```
 
-6. Acesse a API na URL:
+6. Access the API at the following URL:
 
    ```
    http://localhost:8080/api/livros
@@ -93,80 +93,80 @@ Esta API REST foi desenvolvida para gerenciar bibliotecas, permitindo o controle
 
 ---
 
-### 📖 **Exemplos de Endpoints**
+### 📖 **API Endpoints Examples**
 
-**1. Listar todos os livros**  
+**1. List all books**  
 ```
 GET /api/livros
 ```
 
-**2. Consultar um livro por ID**  
+**2. Get a book by ID**  
 ```
 GET /api/livros/{id}
 ```
 
-**3. Adicionar um novo livro**  
+**3. Add a new book**  
 ```
 POST /api/livros
 Content-Type: application/json
 {
-  "titulo": "O Senhor dos Anéis",
+  "titulo": "The Lord of the Rings",
   "autor": "J.R.R. Tolkien",
-  "genero": "Fantasia"
+  "genero": "Fantasy"
 }
 ```
 
-**4. Excluir um livro**  
+**4. Delete a book**  
 ```
 DELETE /api/livros/{id}
 ```
 
-**5. Listar todos os usuários**
+**5. List all users**
 ```
 GET /api/usuarios
 ```
 
-**6. Consultar um usuário por ID**
+**6. Get a user by ID**
 ```
 GET /api/usuarios/{id}
 ```
 
-**7. Adicionar um novo usuário**  
+**7. Add a new user**  
 ```
 POST /api/usuarios
 Content-Type: application/json
 {
-  "nome": "João da Silva",
-  "email": "joao.silva@email.com"
+  "nome": "John Doe",
+  "email": "john.doe@email.com"
 }
 ```
 
-**8. Atualizar dados de um usuário**  
+**8. Update user data**  
 ```
 PUT /api/usuarios/{id}
 Content-Type: application/json
 {
-  "nome": "João da Silva Atualizado",
-  "email": "joao.silva.novo@email.com"
+  "nome": "John Doe Updated",
+  "email": "john.doe.new@email.com"
 }
 ```
 
-**9. Excluir um usuário**  
+**9. Delete a user**  
 ```
 DELETE /api/usuarios/{id}
 ```
 
 ---
 
-### 👥 **Contribuições**
+### 👥 **Contributions**
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar pull requests.
+Contributions are welcome! Feel free to open issues and submit pull requests.
 
 ---
 
-### 📧 **Contato**
+### 📧 **Contact**
 
-Para dúvidas ou sugestões, entre em contato:
+For questions or suggestions, feel free to contact:
 
 - Email: [joaoteireis@gmail.com](mailto:joaoteireis@gmail.com)  
 - LinkedIn: [João T. Reis](https://www.linkedin.com/in/joao-t-reis)
